@@ -1,15 +1,25 @@
 "use client";
 
-
 import { useEffect, useRef } from "react";
 
+/* ---------- Types ---------- */
+type TimelineItem = {
+  id: string;
+  side: "left" | "right";
+  title: string;
+  desc: string;
+  date: string;
+  img: string;
+};
 
 export default function Milestones() {
-  const timelineRef = useRef(null);
-  const fillRef = useRef(null);
+  const timelineRef = useRef<HTMLDivElement | null>(null);
+  const fillRef = useRef<HTMLDivElement | null>(null);
 
-  // 🔵 Scroll animated blue line
+  /* ---------- Scroll Animation ---------- */
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
     const onScroll = () => {
       const box = timelineRef.current;
       const fill = fillRef.current;
@@ -27,10 +37,12 @@ export default function Milestones() {
 
     window.addEventListener("scroll", onScroll);
     onScroll();
+
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const data = [
+  /* ---------- Data ---------- */
+  const data: TimelineItem[] = [
     {
       id: "01",
       side: "left",
@@ -97,6 +109,7 @@ export default function Milestones() {
     },
   ];
 
+  /* ---------- JSX ---------- */
   return (
     <section className="milestone-page">
       <h2>Milestones</h2>
@@ -123,7 +136,7 @@ export default function Milestones() {
                 <p>{m.desc}</p>
 
                 <div className="img-wrap">
-                  <img src={m.img} alt="" width={420} height={260} />
+                  <img src={m.img} alt={m.title} />
                   <div className="img-date">{m.date}</div>
                 </div>
               </div>

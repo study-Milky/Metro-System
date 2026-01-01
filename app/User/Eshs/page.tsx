@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
 
 export default function ESHS() {
@@ -15,18 +14,29 @@ export default function ESHS() {
 
       {/* Tabs */}
       <div className="eshs-tabs">
-        <button className={tab === "env" ? "active" : ""} onClick={() => setTab("env")}>
+        <button
+          className={tab === "env" ? "active" : ""}
+          onClick={() => setTab("env")}
+        >
           Environment
         </button>
-        <button className={tab === "social" ? "active" : ""} onClick={() => setTab("social")}>
+
+        <button
+          className={tab === "social" ? "active" : ""}
+          onClick={() => setTab("social")}
+        >
           Social
         </button>
-        <button className={tab === "hse" ? "active" : ""} onClick={() => setTab("hse")}>
+
+        <button
+          className={tab === "hse" ? "active" : ""}
+          onClick={() => setTab("hse")}
+        >
           Health & Safety
         </button>
       </div>
 
-      {/* ENV TAB */}
+      {/* ENVIRONMENT TAB */}
       {tab === "env" && (
         <>
           <Section title="Environment Impact Assessment (EIA)">
@@ -38,22 +48,32 @@ export default function ESHS() {
 
           <Section title="Environment Monitoring">
             <p>
-              Air & noise quality monitored twice a month through NABL accredited agencies.
+              Air & noise quality monitored twice a month through NABL
+              accredited agencies.
             </p>
 
             <div className="img-grid">
               <div className="img-card">
-                <img src="https://res.cloudinary.com/dmuaxsqy9/image/upload/v1767081737/esms_yfvhua.jpg" />
+                <img
+                  src="https://res.cloudinary.com/dmuaxsqy9/image/upload/v1767081737/esms_yfvhua.jpg"
+                  alt="Mahatma Mandir"
+                />
                 <p>Mahatma Mandir, Gandhinagar</p>
               </div>
 
               <div className="img-card">
-                <img src="https://res.cloudinary.com/dmuaxsqy9/image/upload/v1767081737/esms1_gson1k.jpg" />
+                <img
+                  src="https://res.cloudinary.com/dmuaxsqy9/image/upload/v1767081737/esms1_gson1k.jpg"
+                  alt="Sector 10A"
+                />
                 <p>Sector 10A, Gandhinagar</p>
               </div>
 
               <div className="img-card">
-                <img src="https://res.cloudinary.com/dmuaxsqy9/image/upload/v1767081738/esms2_knpend.jpg" />
+                <img
+                  src="https://res.cloudinary.com/dmuaxsqy9/image/upload/v1767081738/esms2_knpend.jpg"
+                  alt="RMC Plant"
+                />
                 <p>RMC Plant, Gandhinagar</p>
               </div>
             </div>
@@ -62,11 +82,17 @@ export default function ESHS() {
           <Section title="Waste Management">
             <div className="img-grid two">
               <div className="img-card">
-                <img src="https://res.cloudinary.com/dmuaxsqy9/image/upload/v1767081741/esms3_racags.jpg" />
+                <img
+                  src="https://res.cloudinary.com/dmuaxsqy9/image/upload/v1767081741/esms3_racags.jpg"
+                  alt="Waste Management"
+                />
               </div>
 
               <div className="img-card">
-                <img src="https://res.cloudinary.com/dmuaxsqy9/image/upload/v1767081739/esms4_imqfjm.jpg" />
+                <img
+                  src="https://res.cloudinary.com/dmuaxsqy9/image/upload/v1767081739/esms4_imqfjm.jpg"
+                  alt="Waste Management"
+                />
               </div>
             </div>
           </Section>
@@ -74,11 +100,17 @@ export default function ESHS() {
           <Section title="Water Management">
             <div className="img-grid two">
               <div className="img-card">
-                <img src="https://res.cloudinary.com/dmuaxsqy9/image/upload/v1767081742/esms5_apvnfw.jpg" />
+                <img
+                  src="https://res.cloudinary.com/dmuaxsqy9/image/upload/v1767081742/esms5_apvnfw.jpg"
+                  alt="Water Management"
+                />
               </div>
 
               <div className="img-card">
-                <img src="https://res.cloudinary.com/dmuaxsqy9/image/upload/v1767081749/esms9_gcyzom.jpg" />
+                <img
+                  src="https://res.cloudinary.com/dmuaxsqy9/image/upload/v1767081749/esms9_gcyzom.jpg"
+                  alt="Water Management"
+                />
               </div>
             </div>
           </Section>
@@ -86,6 +118,7 @@ export default function ESHS() {
           <Section title="Site Photograph">
             <img
               src="https://res.cloudinary.com/dmuaxsqy9/image/upload/v1767081766/esms8_puto2f.jpg"
+              alt="Site"
               className="full-img"
             />
           </Section>
@@ -95,9 +128,7 @@ export default function ESHS() {
       {/* OTHER TABS */}
       {tab !== "env" && (
         <div className="placeholder">
-         
           <h3>Content Coming Soon</h3>
-          
         </div>
       )}
     </section>
@@ -105,7 +136,12 @@ export default function ESHS() {
 }
 
 /* ---------- Section Component ---------- */
-function Section({ title, children }) {
+type SectionProps = {
+  title?: string;
+  children: React.ReactNode;
+};
+
+function Section({ title, children }: SectionProps) {
   return (
     <div className="eshs-section">
       {title && <h3>{title}</h3>}
@@ -114,3 +150,4 @@ function Section({ title, children }) {
     </div>
   );
 }
+
