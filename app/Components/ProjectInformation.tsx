@@ -1,17 +1,23 @@
-"use client"
-import Link from 'next/link'
-import React from 'react'
+"use client";
+
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+
 const ProjectInformation = () => {
   return (
     <div>
+      {/* Info Bar */}
       <div className="info-bar">
-        <div className="info-title">
-          Important Information
-        </div>
+        <div className="info-title">Important Information</div>
 
+        {/* Marquee Replacement */}
         <div className="info-marquee">
-          <marquee>
-            The Ahmedabad Metro Rail Project is designed to provide safe, fast, reliable, and eco-friendly public transportation for the city. The project aims to reduce traffic congestion, shorten travel time, and improve urban mobility while supporting sustainable development.
+          <div className="marquee-text">
+            The Ahmedabad Metro Rail Project is designed to provide safe, fast,
+            reliable, and eco-friendly public transportation for the city. The
+            project aims to reduce traffic congestion, shorten travel time, and
+            improve urban mobility while supporting sustainable development.{" "}
             <a
               href="/pdf/GMRCL.pdf"
               target="_blank"
@@ -19,10 +25,11 @@ const ProjectInformation = () => {
             >
               Click here to view official notice (PDF)
             </a>
-          </marquee>
+          </div>
         </div>
-
       </div>
+
+      {/* Project Overview */}
       <section className="project-overview">
         <h2 className="section-title">Project Overview</h2>
         <div className="underline"></div>
@@ -57,8 +64,11 @@ const ProjectInformation = () => {
               <span className="big">31</span>
               <p>Operational Stations</p>
             </div>
-          <Link href="/User/Overview/Ahmedabad/Ahmedabad1">
-            <button className="know-btn">To Know More →</button>
+
+            <Link href="/User/Overview/Ahmedabad/Ahmedabad1">
+              <button type="button" className="know-btn">
+                To Know More →
+              </button>
             </Link>
           </div>
 
@@ -80,8 +90,11 @@ const ProjectInformation = () => {
               <span className="big">17</span>
               <p>Operational Stations</p>
             </div>
+
             <Link href="/User/Overview/Ahmedabad2">
-            <button className="know-btn">To Know More →</button>
+              <button type="button" className="know-btn">
+                To Know More →
+              </button>
             </Link>
           </div>
 
@@ -98,53 +111,90 @@ const ProjectInformation = () => {
               <span className="big">38</span>
               <p>Total Stations</p>
             </div>
-           <Link href="/User/Overview/Surat1">
-            <button className="know-btn">To Know More →</button>
+
+            <Link href="/User/Overview/Surat1">
+              <button type="button" className="know-btn">
+                To Know More →
+              </button>
             </Link>
           </div>
         </div>
       </section>
+
+      {/* Feature Section */}
       <section className="feature-section">
         <div className="feature-grid">
-
           <div className="feature-card">
-            <img src="https://res.cloudinary.com/dmuaxsqy9/image/upload/v1767081794/project_obcgdi.webp" alt="overview" />
-            <h3>Project<br />Overview</h3>
+            <Image
+              src="https://res.cloudinary.com/dmuaxsqy9/image/upload/v1767081794/project_obcgdi.webp"
+              alt="overview"
+              width={250}
+              height={150}
+            />
+            <h3>
+              Project <br /> Overview
+            </h3>
           </div>
 
           <div className="feature-card">
-            <img src="https://res.cloudinary.com/dmuaxsqy9/image/upload/v1767081794/project_obcgdi.webp" alt="features" />
-            <h3>Special<br />Features</h3>
+            <Image
+              src="https://res.cloudinary.com/dmuaxsqy9/image/upload/v1767081794/project_obcgdi.webp"
+              alt="features"
+              width={250}
+              height={150}
+            />
+            <h3>
+              Special <br /> Features
+            </h3>
           </div>
 
           <div className="feature-card">
-            <img src="https://res.cloudinary.com/dmuaxsqy9/image/upload/v1767081734/123_ob5xo4.png" alt="integration" />
-            <h3>Multi Model<br />Integration</h3>
+            <Image
+              src="https://res.cloudinary.com/dmuaxsqy9/image/upload/v1767081734/123_ob5xo4.png"
+              alt="integration"
+              width={250}
+              height={150}
+            />
+            <h3>
+              Multi Model <br /> Integration
+            </h3>
           </div>
 
           <div className="feature-card">
-            <img src="https://res.cloudinary.com/dmuaxsqy9/image/upload/v1767081734/456_foa66s.webp" alt="milestones" />
+            <Image
+              src="https://res.cloudinary.com/dmuaxsqy9/image/upload/v1767081734/456_foa66s.webp"
+              alt="milestones"
+              width={250}
+              height={150}
+            />
             <h3>Milestones</h3>
           </div>
 
           <div className="feature-card">
-            <img src="https://res.cloudinary.com/dmuaxsqy9/image/upload/v1767081796/project1_qa1nzx.png" height={100} width={250} alt="environment" />
-            <h3>Environment<br />Initiatives</h3>
+            <Image
+              src="https://res.cloudinary.com/dmuaxsqy9/image/upload/v1767081796/project1_qa1nzx.png"
+              alt="environment"
+              width={250}
+              height={150}
+            />
+            <h3>
+              Environment <br /> Initiatives
+            </h3>
           </div>
 
           <div className="feature-card center-card">
-            <img src="https://res.cloudinary.com/dmuaxsqy9/image/upload/v1767081755/h1_grg3tf.png" alt="gallery" />
+            <Image
+              src="https://res.cloudinary.com/dmuaxsqy9/image/upload/v1767081755/h1_grg3tf.png"
+              alt="gallery"
+              width={250}
+              height={150}
+            />
             <h3>Photo Gallery</h3>
           </div>
-
         </div>
       </section>
-
-
-
-
     </div>
-  )
-}
+  );
+};
 
-export default ProjectInformation
+export default ProjectInformation;
