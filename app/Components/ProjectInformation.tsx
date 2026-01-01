@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
+
 
 const ProjectInformation = () => {
   return (
@@ -124,20 +124,8 @@ const ProjectInformation = () => {
       {/* Feature Section */}
       <section className="feature-section">
         <div className="feature-grid">
-          <div className="feature-card">
-            <Image
-              src="https://res.cloudinary.com/dmuaxsqy9/image/upload/v1767081794/project_obcgdi.webp"
-              alt="overview"
-              width={250}
-              height={150}
-            />
-            <h3>
-              Project <br /> Overview
-            </h3>
-          </div>
-
-          <div className="feature-card">
-            <Image
+         <div className="feature-card">
+            <img
               src="https://res.cloudinary.com/dmuaxsqy9/image/upload/v1767081794/project_obcgdi.webp"
               alt="features"
               width={250}
@@ -149,7 +137,7 @@ const ProjectInformation = () => {
           </div>
 
           <div className="feature-card">
-            <Image
+            <img
               src="https://res.cloudinary.com/dmuaxsqy9/image/upload/v1767081734/123_ob5xo4.png"
               alt="integration"
               width={250}
@@ -161,7 +149,7 @@ const ProjectInformation = () => {
           </div>
 
           <div className="feature-card">
-            <Image
+            <img
               src="https://res.cloudinary.com/dmuaxsqy9/image/upload/v1767081734/456_foa66s.webp"
               alt="milestones"
               width={250}
@@ -171,7 +159,7 @@ const ProjectInformation = () => {
           </div>
 
           <div className="feature-card">
-            <Image
+            <img
               src="https://res.cloudinary.com/dmuaxsqy9/image/upload/v1767081796/project1_qa1nzx.png"
               alt="environment"
               width={250}
@@ -182,8 +170,8 @@ const ProjectInformation = () => {
             </h3>
           </div>
 
-          <div className="feature-card center-card">
-            <Image
+          <div className="feature-card ">
+            <img
               src="https://res.cloudinary.com/dmuaxsqy9/image/upload/v1767081755/h1_grg3tf.png"
               alt="gallery"
               width={250}

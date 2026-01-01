@@ -1,4 +1,4 @@
-// app/gmrc-in-news/page.jsx  (or component)
+
 
 
 "use client"

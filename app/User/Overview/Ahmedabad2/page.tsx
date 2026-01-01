@@ -13,10 +13,11 @@ export default function Ahmedabad() {
       {/* Banner */}
       <section className="project-banner">
         <img
-          src="/Img/overview1.webp"
+          src="https://res.cloudinary.com/dmuaxsqy9/image/upload/v1767081794/overview1_xiuzxl.webp"
           alt="Project Overview"
          className="banner-img"
         />
+        <div className="banner-overlay"></div>
         <h1 className="banner-title">PROJECT OVERVIEW</h1>
       </section>
 
@@ -52,7 +53,7 @@ export default function Ahmedabad() {
 
           {/* Right Content */}
           <div className="project-content">
-            
+          
             <h3>Project Overview:</h3>
 
       <a href="#" className="metro-description">

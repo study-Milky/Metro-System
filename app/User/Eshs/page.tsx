@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 
 export default function ESHS() {
@@ -20,13 +21,14 @@ export default function ESHS() {
         >
           Environment
         </button>
-
+        <Link href="/User/Eshs">
         <button
           className={tab === "social" ? "active" : ""}
           onClick={() => setTab("social")}
         >
           Social
         </button>
+        </Link>
 
         <button
           className={tab === "hse" ? "active" : ""}
@@ -128,6 +130,7 @@ export default function ESHS() {
       {/* OTHER TABS */}
       {tab !== "env" && (
         <div className="placeholder">
+          
           <h3>Content Coming Soon</h3>
         </div>
       )}

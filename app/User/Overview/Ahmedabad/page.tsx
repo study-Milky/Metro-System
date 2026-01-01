@@ -17,11 +17,13 @@ export default function Ahmedabad() {
           alt="Project Overview"
          className="banner-img"
         />
+           <div className="banner-overlay"></div>
         <h1 className="banner-title">PROJECT OVERVIEW</h1>
       </section>
 
       {/* Main Section */}
         <section className="projects-wrapper">
+            
         <h2 className="section-title">Projects Overview</h2>
         <div className="underline"></div>
 

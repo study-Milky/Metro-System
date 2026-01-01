@@ -43,7 +43,7 @@ export default function Hero() {
           </p>
 
          <Link href="/User/technologi">
-         <button className="readBtn">Read More →</button>
+         <button className="readBtn">Read More </button>
          </Link>
         </div>
 

@@ -10,38 +10,33 @@ import {
   FaRegFile,
   FaNewspaper,
   FaPhoneAlt,
+  FaChevronDown,
+  FaChevronRight,
 } from "react-icons/fa";
 
 export default function Navbar() {
   const pathname = usePathname();
+  const isActive = (path: string) => pathname === path;
 
-  // ✅ FIX: type added
-  const isActive = (path: string): boolean => pathname === path;
+  const [projectOpen, setProjectOpen] = useState(false);
+  const [overviewOpen, setOverviewOpen] = useState(false);
+  const [mmiOpen, setMmiOpen] = useState(false);
+  const [specialOpen, setSpecialOpen] = useState(false);
 
-  const [projectOpen, setProjectOpen] = useState<boolean>(false);
-  const [overviewOpen, setOverviewOpen] = useState<boolean>(false);
-  const [specialOpen, setSpecialOpen] = useState<boolean>(false);
-  const [mmiOpen, setMmiOpen] = useState<boolean>(false);
-
-  // ✅ FIX: proper ref type
   const menuRef = useRef<HTMLLIElement | null>(null);
 
   useEffect(() => {
-    // ✅ FIX: event type + target cast
     const close = (e: MouseEvent) => {
-      if (
-        menuRef.current &&
-        !menuRef.current.contains(e.target as Node)
-      ) {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
         setProjectOpen(false);
         setOverviewOpen(false);
-        setSpecialOpen(false);
         setMmiOpen(false);
+        setSpecialOpen(false);
       }
     };
 
-    document.addEventListener("mousedown", close);
-    return () => document.removeEventListener("mousedown", close);
+    document.addEventListener("click", close);
+    return () => document.removeEventListener("click", close);
   }, []);
 
   return (
@@ -66,118 +61,105 @@ export default function Navbar() {
 
       {/* ===== NAVBAR ===== */}
       <nav className="navbar">
-        <Link href="/User/Home" className={isActive("/User/Home") ? "active" : ""}>
-          <FaHome /> Home
+        <Link href="/User/Home" className={`nav-link ${isActive("/User/Home") ? "active" : ""}`}>
+          <FaHome /> <span>Home</span>
         </Link>
 
-        <Link
-          href="/User/About"
-          className={isActive("/User/About") ? "active" : ""}
-        >
-          <FaInfoCircle /> About
+        <Link href="/User/About" className={`nav-link ${isActive("/User/About") ? "active" : ""}`}>
+          <FaInfoCircle /> <span>About</span>
         </Link>
 
         {/* ===== PROJECT MENU ===== */}
         <ul className="menu">
           <li className="menu-item" ref={menuRef}>
             <span
-              className="menu-title"
-              onClick={() => setProjectOpen(!projectOpen)}
+              className="menu-title nav-link"
+              onClick={(e) => {
+                e.stopPropagation();
+                setProjectOpen(!projectOpen);
+              }}
             >
-              <FaProjectDiagram /> Project ▾
+              <FaProjectDiagram /> <span>Project</span>
+              <FaChevronDown style={{ fontSize: '12px', marginLeft: '4px' }} />
             </span>
 
             {projectOpen && (
               <ul className="dropdown">
-                {/* ===== OVERVIEW ===== */}
-                <li
+                {/* OVERVIEW */}
+                <li 
                   className="has-submenu"
                   onMouseEnter={() => setOverviewOpen(true)}
                   onMouseLeave={() => setOverviewOpen(false)}
                 >
-                  <span className="submenu-title">Overview ▸</span>
+                  <span className="submenu-title">
+                    <span>Overview</span>
+                    <FaChevronRight style={{ fontSize: '10px' }} />
+                  </span>
+
                   {overviewOpen && (
                     <ul className="sub-dropdown">
-                      <li>
-                        <Link href="/User/Overview/Ahmedabad">
-                          Ahmedabad Phase 1
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/User/Overview/Ahmedabad2">
-                          Ahmedabad Phase 2
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/User/Overview/Surat1">
-                          Surat Phase 1
-                        </Link>
-                      </li>
+                      <li><Link href="/User/Overview/Ahmedabad">Ahmedabad Phase 1</Link></li>
+                      <li><Link href="/User/Overview/Ahmedabad2">Ahmedabad Phase 2</Link></li>
+                      <li><Link href="/User/Overview/Surat1">Surat Phase 1</Link></li>
                     </ul>
                   )}
                 </li>
 
-                {/* ===== SPECIAL FEATURES ===== */}
-                <li
+                {/* SPECIAL FEATURES */}
+                <li 
                   className="has-submenu"
                   onMouseEnter={() => setSpecialOpen(true)}
                   onMouseLeave={() => setSpecialOpen(false)}
                 >
-                  <span className="submenu-title">Special Features ▸</span>
+                  <span className="submenu-title">
+                    <span>Special Features</span>
+                    <FaChevronRight style={{ fontSize: '10px' }} />
+                  </span>
+
                   {specialOpen && (
                     <ul className="sub-dropdown">
-                      <li>
-                        <Link href="/User/Special">Ahmedabad Phase 1</Link>
-                      </li>
-                      <li>
-                        <Link href="/User/Special/Special1">
-                          Ahmedabad Phase 2
-                        </Link>
-                      </li>
+                      <li><Link href="/User/Special">Ahmedabad Phase 1</Link></li>
+                      <li><Link href="/User/Special/Special1">Ahmedabad Phase 2</Link></li>
                     </ul>
                   )}
                 </li>
 
-                {/* ===== MMI ===== */}
-                <li
+                {/* MMI */}
+                <li 
                   className="has-submenu"
                   onMouseEnter={() => setMmiOpen(true)}
                   onMouseLeave={() => setMmiOpen(false)}
                 >
-                  <span className="submenu-title">MMI ▸</span>
+                  <span className="submenu-title">
+                    <span>MMI</span>
+                    <FaChevronRight style={{ fontSize: '10px' }} />
+                  </span>
+
                   {mmiOpen && (
                     <ul className="sub-dropdown">
-                      <li>
-                        <Link href="/User/Mmi/Interation">
-                          Ahmedabad Phase 1
-                        </Link>
-                      </li>
+                      <li><Link href="/User/Mmi/Interation">Ahmedabad Phase 1</Link></li>
                     </ul>
                   )}
                 </li>
 
-                <li>
-                  <Link href="/User/Melistone">Milestones</Link>
-                </li>
-                <li>
-                  <Link href="/User/technologi">Technology</Link>
-                </li>
-                <li>
-                  <Link href="/User/Eshs">ESHS</Link>
-                </li>
+                <li><Link href="/User/Melistone">Milestones</Link></li>
+                <li><Link href="/User/technologi">Technology</Link></li>
+                <li><Link href="/User/Eshs">ESHS</Link></li>
               </ul>
             )}
           </li>
         </ul>
 
-        <Link href="/User/Rti">
-          <FaRegFile /> RTI
+        <Link href="/User/Rti" className={`nav-link ${isActive("/User/Rti") ? "active" : ""}`}>
+          <FaRegFile /> <span>RTI</span>
         </Link>
-        <Link href="/User/Media">
-          <FaNewspaper /> Media
+
+        <Link href="/User/Media" className={`nav-link ${isActive("/User/Media") ? "active" : ""}`}>
+          <FaNewspaper /> <span>Media</span>
         </Link>
-        <Link href="/User/Contact">
-          <FaPhoneAlt /> Contact
+
+        <Link href="/User/Contact" className={`nav-link ${isActive("/User/Contact") ? "active" : ""}`}>
+          <FaPhoneAlt /> <span>Contact</span>
         </Link>
       </nav>
     </>
