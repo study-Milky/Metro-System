@@ -136,18 +136,19 @@ export default function ESHS() {
 }
 
 /* ---------- Section Component ---------- */
-type SectionProps = {
+function Section({
+  title,
+  children,
+}: {
   title?: string;
   children: React.ReactNode;
-};
-
-function Section({ title, children }: SectionProps) {
+}) {
   return (
     <div className="eshs-section">
       {title && <h3>{title}</h3>}
-      {title && <div className="underline"></div>}
       {children}
     </div>
   );
 }
+
 
