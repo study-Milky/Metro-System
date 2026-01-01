@@ -10,7 +10,7 @@ export default function SpecialFeatures() {
     <div>
     <section className="project-banner">
         <img
-          src="https://res.cloudinary.com/dmuaxsqy9/image/upload/v1767081794/overview1_xiuzxl.webp"
+          src="https://res.cloudinary.com/dmuaxsqy9/image/upload/v1767081767/eshs1_kswdof.jpg"
           alt="Project Overview"
          className="banner-img"
         />
