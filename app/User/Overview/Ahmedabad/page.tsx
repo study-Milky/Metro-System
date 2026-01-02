@@ -23,7 +23,7 @@ export default function Ahmedabad() {
 
       {/* Main Section */}
         <section className="projects-wrapper">
-            
+           
         <h2 className="section-title">Projects Overview</h2>
         <div className="underline"></div>
 
